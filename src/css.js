@@ -19,6 +19,8 @@ const css = config => props => {
     const cx = createRule(breaks, sx)(key, val)
     cx.forEach(cn => classNames.push(cn))
   }
+  const borderBox = createRule(breaks, sx)('box-sizing', 'border-box');
+  borderBox.forEach((cn => classNames.push(cn)));
 
   next.className = join(next.className, ...classNames)
 
